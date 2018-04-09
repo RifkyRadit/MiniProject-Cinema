@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cinema/Controllers/Movies/detailMovieViewController.swift"
+            timestampString = "544608828.5280499"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "detailMovieViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cinema.detailMovieViewController.movies.getter : Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;"
+                  moduleName = "Cinema"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac01/Desktop/Bootcamp-IOS/Cinema%202/Cinema/Controllers/Movies/detailMovieViewController.swift"
+                  timestampString = "544352400.161212"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "109">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cinema.detailMovieViewController.movies.setter : Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;"
+                  moduleName = "Cinema"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac01/Desktop/Bootcamp-IOS/Cinema%202/Cinema/Controllers/Movies/detailMovieViewController.swift"
+                  timestampString = "544352400.164156"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "112">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cinema.detailMovieViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Cinema.detailMovieViewController"
+                  moduleName = "Cinema"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac01/Desktop/Bootcamp-IOS/Cinema%202/Cinema/Controllers/Movies/detailMovieViewController.swift"
+                  timestampString = "544352400.167413"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "999">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cinema.detailMovieViewController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;Cinema.detailMovieViewController&gt;"
+                  moduleName = "Cinema"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac01/Desktop/Bootcamp-IOS/Cinema%202/Cinema/Controllers/Movies/detailMovieViewController.swift"
+                  timestampString = "544352400.170697"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "884">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cinema/Controllers/Movies/detailMovieViewController.swift"
+            timestampString = "544608828.52833"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "detailMovieViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cinema.detailMovieViewController.selectedMovie.getter : Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;"
+                  moduleName = "Cinema"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac01/Desktop/Bootcamp-IOS/Cinema%202/Cinema/Controllers/Movies/detailMovieViewController.swift"
+                  timestampString = "544352400.180568"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cinema.detailMovieViewController.selectedMovie.setter : Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;"
+                  moduleName = "Cinema"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac01/Desktop/Bootcamp-IOS/Cinema%202/Cinema/Controllers/Movies/detailMovieViewController.swift"
+                  timestampString = "544352400.183859"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cinema.detailMovieViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Cinema.detailMovieViewController"
+                  moduleName = "Cinema"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac01/Desktop/Bootcamp-IOS/Cinema%202/Cinema/Controllers/Movies/detailMovieViewController.swift"
+                  timestampString = "544352400.1877199"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "1164">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cinema.detailMovieViewController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;Cinema.detailMovieViewController&gt;"
+                  moduleName = "Cinema"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac01/Desktop/Bootcamp-IOS/Cinema%202/Cinema/Controllers/Movies/detailMovieViewController.swift"
+                  timestampString = "544352400.190532"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "1048">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cinema/Controllers/Movies/updateMovieViewController.swift"
+            timestampString = "544690717.7882839"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "updateMovieViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cinema.updateMovieViewController.selectedMovie.getter : Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;"
+                  moduleName = "Cinema"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac01/Downloads/Cinema%202.1.1/Cinema/Controllers/Movies/updateMovieViewController.swift"
+                  timestampString = "544597770.592097"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cinema.updateMovieViewController.selectedMovie.setter : Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;"
+                  moduleName = "Cinema"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac01/Downloads/Cinema%202.1.1/Cinema/Controllers/Movies/updateMovieViewController.swift"
+                  timestampString = "544597770.595789"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cinema.updateMovieViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Cinema.updateMovieViewController"
+                  moduleName = "Cinema"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac01/Downloads/Cinema%202.1.1/Cinema/Controllers/Movies/updateMovieViewController.swift"
+                  timestampString = "544597770.606128"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "1404">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cinema.updateMovieViewController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;Cinema.updateMovieViewController&gt;"
+                  moduleName = "Cinema"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac01/Downloads/Cinema%202.1.1/Cinema/Controllers/Movies/updateMovieViewController.swift"
+                  timestampString = "544597770.6096441"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "1290">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cinema/Controllers/Movies/updateMovieViewController.swift"
+            timestampString = "544690717.788559"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "updateMovieViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cinema.updateMovieViewController.selectedgenre.getter : Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;"
+                  moduleName = "Cinema"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac01/Downloads/Cinema%202.1.1/Cinema/Controllers/Movies/updateMovieViewController.swift"
+                  timestampString = "544597390.076479"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cinema.updateMovieViewController.selectedgenre.setter : Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;"
+                  moduleName = "Cinema"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac01/Downloads/Cinema%202.1.1/Cinema/Controllers/Movies/updateMovieViewController.swift"
+                  timestampString = "544597390.0971299"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cinema.updateMovieViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Cinema.updateMovieViewController"
+                  moduleName = "Cinema"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac01/Downloads/Cinema%202.1.1/Cinema/Controllers/Movies/updateMovieViewController.swift"
+                  timestampString = "544597390.1004601"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "1557">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cinema.updateMovieViewController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;Cinema.updateMovieViewController&gt;"
+                  moduleName = "Cinema"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac01/Downloads/Cinema%202.1.1/Cinema/Controllers/Movies/updateMovieViewController.swift"
+                  timestampString = "544597390.103384"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "1438">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cinema/Controllers/Movies/updateMovieViewController.swift"
+            timestampString = "544690717.788685"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "updateButtonDidPushed(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cinema/Controllers/Movies/updateMovieViewController.swift"
+            timestampString = "544690717.788801"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "updateButtonDidPushed(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cinema/Controllers/Seats/updateSeatViewController.swift"
+            timestampString = "544521731.3769799"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "updateSeatViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cinema.updateSeatViewController.selectedSeat.getter : Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;"
+                  moduleName = "Cinema"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac01/Desktop/Bootcamp-IOS/Cinema%202/Cinema/Controllers/Seats/updateSeatViewController.swift"
+                  timestampString = "544517606.611861"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cinema.updateSeatViewController.selectedSeat.setter : Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;"
+                  moduleName = "Cinema"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac01/Desktop/Bootcamp-IOS/Cinema%202/Cinema/Controllers/Seats/updateSeatViewController.swift"
+                  timestampString = "544517606.6153671"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cinema.updateSeatViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Cinema.updateSeatViewController"
+                  moduleName = "Cinema"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac01/Desktop/Bootcamp-IOS/Cinema%202/Cinema/Controllers/Seats/updateSeatViewController.swift"
+                  timestampString = "544517606.620116"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "356">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cinema.updateSeatViewController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;Cinema.updateSeatViewController&gt;"
+                  moduleName = "Cinema"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac01/Desktop/Bootcamp-IOS/Cinema%202/Cinema/Controllers/Seats/updateSeatViewController.swift"
+                  timestampString = "544517606.623121"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "264">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cinema/Controllers/Movies/MovieViewController.swift"
+            timestampString = "544930222.524532"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "collectionView(_:numberOfItemsInSection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cinema/Controllers/Movies/MovieViewController.swift"
+            timestampString = "544930222.545126"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cinema/Controllers/Movies/updateMovieViewController.swift"
+            timestampString = "544690717.789348"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cinema/Controllers/Theater/TheaterMoviesViewController.swift"
+            timestampString = "544695946.318404"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cinema/Controllers/Theater/TheaterMoviesViewController.swift"
+            timestampString = "544695946.318719"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cinema/Controllers/Theater/TheaterMoviesViewController.swift"
+            timestampString = "544695946.319016"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cinema/Controllers/Theater/TheaterMoviesViewController.swift"
+            timestampString = "544695946.319465"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cinema/Controllers/Theater/TheaterMoviesViewController.swift"
+            timestampString = "544695946.319927"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cinema/Controllers/Theater/TheaterMoviesViewController.swift"
+            timestampString = "544695946.3204809"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
