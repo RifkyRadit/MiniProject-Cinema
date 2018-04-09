@@ -32,5 +32,6 @@ class Utilities {
         alert.addAction(ok)
         obj.present(alert, animated: true, completion: nil)
     }
+    
 }
 

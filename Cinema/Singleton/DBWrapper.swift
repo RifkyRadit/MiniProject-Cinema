@@ -697,7 +697,8 @@ class DBWrapper {
         let hours = order["hours"]!
         let idFilm = order["idFilm"]!
         let idSchedule = order["idSchedule"]!
-        let queryString = "SELECT Seats.idSeat, Seats.nameSeat FROM Seats LEFT JOIN Orders ON Seats.idseat=Orders.idSeat WHERE Seats.idSeat <= (select Theaters.capacity from Theaters) AND Seats.idSeat NOT IN (SELECT Seats.idSeat FROM Seats INNER JOIN Orders ON Seats.idSeat=Orders.idseat INNER JOIN Schedule ON Orders.idSchedule=Schedule.idSchedule INNER JOIN Theaters ON Theaters.idTheater=Schedule.idTheater WHERE Orders.date='\(date)' AND Schedule.hours='\(hours)' AND Schedule.idFilm='\(idFilm)' AND Schedule.idSchedule='\(idSchedule)' AND Seats.idSeat < Theaters.capacity)"
+        let idTheater = order["idTheater"]!
+        let queryString = "SELECT Seats.idSeat, Seats.nameSeat FROM Seats LEFT JOIN Orders ON Seats.idseat=Orders.idSeat WHERE Seats.idSeat <= (select Theaters.capacity from Theaters WHERE Theaters.idTheater = '\(idTheater)') AND Seats.idTheater = '\(idTheater)' AND Seats.idSeat NOT IN (SELECT Seats.idSeat FROM Seats INNER JOIN Orders ON Seats.idSeat=Orders.idseat INNER JOIN Schedule ON Orders.idSchedule=Schedule.idSchedule INNER JOIN Theaters ON Theaters.idTheater=Schedule.idTheater WHERE Orders.date='\(date)' AND Schedule.hours='\(hours)' AND Schedule.idFilm='\(idFilm)' AND Schedule.idSchedule='\(idSchedule)' AND Seats.idSeat < Theaters.capacity AND Seats.idTheater='\(idTheater)')"
         //        let queryString = "SELECT idSeat, nameSeat FROM Seats"
 //        print("QUERY FETCH ORDER SEAT: \(queryString)")
         var stmt : OpaquePointer?
@@ -749,6 +750,74 @@ class DBWrapper {
         }
         
         return movies
+    }
+    
+    //select thetaer for order when has schedule
+    func fetchTheaterSchedule(idFilm: String) -> [[String: String]]? {
+        let queryString = "SELECT Theaters.idTheater, Theaters.nameTheater, Theaters.address, Theaters.image, Theaters.capacity FROM Theaters INNER JOIN Schedule ON Theaters.idTheater = Schedule.idTheater WHERE Schedule.idFilm = '\(idFilm)'"
+        //        print("QUERY FETCH GENRE: \(queryString)")
+        var stmt: OpaquePointer?
+        
+        var theater: [[String: String]]?
+        
+        if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("ERROR: ReadValues: Error preparing fetch Movies: \(errmsg)")
+        }
+        
+        theater = [[String: String]]()
+        while(sqlite3_step(stmt) == SQLITE_ROW){
+            let idTheater = sqlite3_column_int(stmt, 0)
+            let name = String(cString: sqlite3_column_text(stmt, 1))
+            let address = String(cString: sqlite3_column_text(stmt, 2))
+            let image = String(cString: sqlite3_column_text(stmt, 3))
+            let capacity = String(cString: sqlite3_column_text(stmt, 4))
+            
+            let tmp = [
+                "idTheater" : String(idTheater),
+                "nameTheater" : String(name),
+                "address" : String(address),
+                "image" : String(image),
+                "capacity" : String(capacity)
+            ]
+            theater?.append(tmp)
+        }
+        
+        return theater
+        
+    }
+    
+    //search theaters for order
+    func searchTheaterSchedule(search: String, idFilm: String) -> [[String: String]]?{
+        let queryString = "SELECT Theaters.idTheater, Theaters.nameTheater, Theaters.address, Theaters.image, Theaters.capacity FROM Theaters INNER JOIN Schedule ON Theaters.idTheater = Schedule.idTheater WHERE Schedule.idFilm = '\(idFilm)' AND Theaters.nameTheater LIKE '%\(search)%' OR Theaters.address LIKE '%\(search)%'"
+        //        print("QUERY FETCH GENRE: \(queryString)")
+        var stmt: OpaquePointer?
+        
+        var theater: [[String: String]]?
+        
+        if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("ERROR: ReadValues: Error preparing fetch Movies: \(errmsg)")
+        }
+        
+        theater = [[String: String]]()
+        while(sqlite3_step(stmt) == SQLITE_ROW){
+            let name = String(cString: sqlite3_column_text(stmt, 0))
+            let address = String(cString: sqlite3_column_text(stmt, 1))
+            let image = String(cString: sqlite3_column_text(stmt, 2))
+            let capacity = String(cString: sqlite3_column_text(stmt, 3))
+            
+            let tmp = [
+                "nameTheater" : String(name),
+                "address" : String(address),
+                "image" : String(image),
+                "capacity" : String(capacity)
+            ]
+            theater?.append(tmp)
+        }
+        
+        return theater
+        
     }
     
     //MARK:- HISTORY

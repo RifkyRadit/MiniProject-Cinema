@@ -24,6 +24,11 @@ class genreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        
+        //delete back button in left bar navigation item
+        let tmpbtn = UIBarButtonItem()
+        self.navigationItem.leftBarButtonItem = tmpbtn
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,6 +37,10 @@ class genreViewController: UIViewController, UITableViewDelegate, UITableViewDat
             self.genre = data
             self.tableView.reloadData()
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
     }
     
     @IBAction func addGenreDidPushButton(_ sender: UIBarButtonItem){

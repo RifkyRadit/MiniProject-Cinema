@@ -8,7 +8,8 @@
 
 import UIKit
 
-class orderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource,UITextFieldDelegate, selectTheaterDelegate {
+class orderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource,UITextFieldDelegate, selectTheaterScheduleDelegate {
+    
 
     @IBOutlet var customerNameTextField: UITextField!
     @IBOutlet var telephoneTextField: UITextField!
@@ -36,6 +37,9 @@ class orderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.seatTextField.delegate = self
+        self.hourOfFilmTextField.delegate = self
+        
         if let data = DBWrapper.sharedInstance.fetchHours(id: selectedMovie!["idFilm"]!) {
             self.hours = data
         }
@@ -45,7 +49,7 @@ class orderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         pickUp(seatTextField)
         // end of hour
         nameOfFilmTextField.text = selectedMovie?["nameOfFilm"]!
-        hourOfFilmTextField.text = "09.00"
+        hourOfFilmTextField.text = ""
         priceOfFilmTextField.text = selectedMovie?["price"]!
         
         // picker date
@@ -87,7 +91,7 @@ class orderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @objc func datecancelClick() {
         dateOfTextField.resignFirstResponder()
     }
-    // picker
+    //MARK:- picker
     func pickUp(_ textField : UITextField){
         
         // UIPickerView
@@ -136,11 +140,9 @@ class orderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             textField.inputAccessoryView = toolBar
         }
         
-        
-        
-        
     }
-    func selectTheaterWillDissmiss(param: [String : String]) {
+    
+    func selectTheaterScheduleWillDissmiss(param: [String : String]) {
         self.nameOfTheaterTextField.text = param["nameTheater"]
         self.selectedTheater = param
     }
@@ -177,25 +179,36 @@ class orderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             
         }
     }
-    //MARK:- TextFiled Delegate
     
+    //MARK:- TextFiled Delegate
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if textField == self.nameOfTheaterTextField{
-            self.performSegue(withIdentifier: "selectTheaterSegue", sender: self)
+            self.performSegue(withIdentifier: "selectTheaterScheduleSegue", sender: self)
             return false
         }
         if textField ==  self.hourOfFilmTextField {
-            self.pickUp(hourOfFilmTextField)
-            return false
+            if self.nameOfTheaterTextField.text == "" {
+                Utilities.sharedInstance.showAlertCancel(obj: self, title: "ERROR", message: "Theater cannot be empty")
+                return true
+            } else {
+                self.pickUp(hourOfFilmTextField)
+                return true
+            }
+            return true
         }
-        if textField == self.seatPickerView {
-            self.pickUp(seatTextField)
-            return false
+        if (textField == self.seatTextField) {
+            if self.hourOfFilmTextField.text == ""{
+                Utilities.sharedInstance.showAlertCancel(obj: self, title: "ERROR", message: "Hours cannot be empty")
+                return true
+            } else {
+                self.pickUp(seatTextField)
+                return true
+            }
         }
         if textField == self.dateOfTextField {
             return false
         }
-        return false
+        return true
     }
     
     //MARK:- Button
@@ -206,7 +219,8 @@ class orderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             "date" : dateOfTextField.text!,
             "hours" : hourOfFilmTextField.text!,
             "idFilm" : selectedMovie!["idFilm"]!,
-            "idSchedule" : self.idSchedule
+            "idSchedule" : self.idSchedule,
+            "idTheater" : selectedTheater!["idTheater"]!
         ]
         if let data = DBWrapper.sharedInstance.fetchSeatOrder(order: param){
             self.seats = data
@@ -223,6 +237,13 @@ class orderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     @IBAction func saveOrder(_ sender: UIButton){
+        if self.customerNameTextField.text?.isEmpty == true {
+            Utilities.sharedInstance.showAlertCancel(obj: self, title: "ERROR", message: "Theater cannot be empty")
+        }else if self.telephoneTextField.text?.isEmpty == true {
+            Utilities.sharedInstance.showAlertCancel(obj: self, title: "ERROR", message: "Telephone cannot be empty")
+        }else if self.nameOfTheaterTextField.text?.isEmpty == true {
+            Utilities.sharedInstance.showAlertCancel(obj: self, title: "ERROR", message: "Telephone cannot be empty")
+        }
         let param : [String: String] = [
             "customerName" : self.customerNameTextField.text!,
             "telephone" : self.telephoneTextField.text!,
@@ -254,9 +275,10 @@ class orderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "selectTheaterSegue"{
-            let obj = segue.destination as! selectTheaterViewController
+        if segue.identifier == "selectTheaterScheduleSegue"{
+            let obj = segue.destination as! selectTheaterScheduleViewController
             obj.delegate = self
+            obj.selectedMovie = self.selectedMovie
         }
     }
 
