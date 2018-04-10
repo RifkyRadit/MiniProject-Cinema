@@ -29,10 +29,10 @@ class DBWrapper {
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("ERROR: Error creating table Users: \(errmsg)")
         }
-        if sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS Employes (idEmploye INTEGER PRIMARY KEY AUTOINCREMENT, nameEmploye TEXT,  idUser INTEGER AUTOINCREMENT)", nil, nil, nil) != SQLITE_OK {
-            let errmsg = String(cString: sqlite3_errmsg(db)!)
-            print("ERROR: Error creating table Employe: \(errmsg)")
-        }
+//        if sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS Employes (idEmploye INTEGER PRIMARY KEY AUTOINCREMENT, nameEmploye TEXT,  idUser INTEGER AUTOINCREMENT)", nil, nil, nil) != SQLITE_OK {
+//            let errmsg = String(cString: sqlite3_errmsg(db)!)
+//            print("ERROR: Error creating table Employe: \(errmsg)")
+//        }
         if sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS Movies (idFilm INTEGER PRIMARY KEY AUTOINCREMENT, nameOfFilm TEXT, idGenre INTEGER, producer TEXT, cast TEXT, duration TEXT, year TEXT, description TEXT, image TEXT, price TEXT)", nil, nil, nil) != SQLITE_OK{
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("ERROR: Error creating table movies: \(errmsg)")
@@ -83,21 +83,21 @@ class DBWrapper {
         return user
     }
     
-    func doRegister(username: String, password: String, nameEmploye: String, level: String) -> Bool {
-        var stmt: OpaquePointer?
-        let queryString = "INSERT INTO Users (username, password, level) VALUES ('\(username)','\(password)','\(level)')"
-        let query = "INSERT INTO Employes (nameEmploye) VALUES ('\(nameEmploye)')"
-//        print ("QUERY REGISTER: \(queryString)")
-//        print ("QUERY EMPLOYE: \(query)")
-        
-        if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK
-        {
-            let errmsg = String (cString: sqlite3_errmsg(db)!)
-            print("ERROR: SaveMethod: Error preparing insert: \(errmsg)")
-            return false
-        }
-        return sqlite3_step(stmt) == SQLITE_DONE
-    }
+//    func doRegister(username: String, password: String, nameEmploye: String, level: String) -> Bool {
+//        var stmt: OpaquePointer?
+//        let queryString = "INSERT INTO Users (username, password, level) VALUES ('\(username)','\(password)','\(level)')"
+//        let query = "INSERT INTO Employes (nameEmploye) VALUES ('\(nameEmploye)')"
+////        print ("QUERY REGISTER: \(queryString)")
+////        print ("QUERY EMPLOYE: \(query)")
+//
+//        if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK
+//        {
+//            let errmsg = String (cString: sqlite3_errmsg(db)!)
+//            print("ERROR: SaveMethod: Error preparing insert: \(errmsg)")
+//            return false
+//        }
+//        return sqlite3_step(stmt) == SQLITE_DONE
+//    }
     
     func checklUserLevel(username: String) -> String? {
         var stmt: OpaquePointer?
@@ -725,8 +725,8 @@ class DBWrapper {
     }
     
     //hour
-    func fetchHours(id: String) -> [[String: String]]? {
-        let queryString = "SELECT idSchedule, hours FROM Schedule WHERE idFilm='\(id)'"
+    func fetchHours(idFilm: String, idTheater: String) -> [[String: String]]? {
+        let queryString = "SELECT idSchedule, hours FROM Schedule WHERE idFilm='\(idFilm)' AND idTheater='\(idTheater)'"
 //        print ("QUERY FETCH HOURS: \(queryString)")
         var stmt: OpaquePointer?
         
@@ -754,7 +754,7 @@ class DBWrapper {
     
     //select thetaer for order when has schedule
     func fetchTheaterSchedule(idFilm: String) -> [[String: String]]? {
-        let queryString = "SELECT Theaters.idTheater, Theaters.nameTheater, Theaters.address, Theaters.image, Theaters.capacity FROM Theaters INNER JOIN Schedule ON Theaters.idTheater = Schedule.idTheater WHERE Schedule.idFilm = '\(idFilm)'"
+        let queryString = "SELECT Theaters.idTheater, Theaters.nameTheater, Theaters.address, Theaters.image, Theaters.capacity FROM Theaters INNER JOIN Schedule ON Theaters.idTheater = Schedule.idTheater WHERE Schedule.idFilm = '\(idFilm)' GROUP BY Theaters.nameTheater"
         //        print("QUERY FETCH GENRE: \(queryString)")
         var stmt: OpaquePointer?
         
@@ -789,7 +789,7 @@ class DBWrapper {
     
     //search theaters for order
     func searchTheaterSchedule(search: String, idFilm: String) -> [[String: String]]?{
-        let queryString = "SELECT Theaters.idTheater, Theaters.nameTheater, Theaters.address, Theaters.image, Theaters.capacity FROM Theaters INNER JOIN Schedule ON Theaters.idTheater = Schedule.idTheater WHERE Schedule.idFilm = '\(idFilm)' AND Theaters.nameTheater LIKE '%\(search)%' OR Theaters.address LIKE '%\(search)%'"
+        let queryString = "SELECT Theaters.idTheater, Theaters.nameTheater, Theaters.address, Theaters.image, Theaters.capacity FROM Theaters INNER JOIN Schedule ON Theaters.idTheater = Schedule.idTheater WHERE Schedule.idFilm = '\(idFilm)' AND Theaters.nameTheater LIKE '%\(search)%' OR Theaters.address LIKE '%\(search)%' GROUP BY Theaters.idTheaters"
         //        print("QUERY FETCH GENRE: \(queryString)")
         var stmt: OpaquePointer?
         

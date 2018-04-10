@@ -27,8 +27,8 @@ class genreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         
         //delete back button in left bar navigation item
-        let tmpbtn = UIBarButtonItem()
-        self.navigationItem.leftBarButtonItem = tmpbtn
+//        let tmpbtn = UIBarButtonItem()
+//        self.navigationItem.leftBarButtonItem = tmpbtn
     }
     
     override func viewWillAppear(_ animated: Bool) {

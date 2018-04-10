@@ -40,9 +40,10 @@ class orderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         self.seatTextField.delegate = self
         self.hourOfFilmTextField.delegate = self
         
-        if let data = DBWrapper.sharedInstance.fetchHours(id: selectedMovie!["idFilm"]!) {
-            self.hours = data
-        }
+//        if let data = DBWrapper.sharedInstance.fetchHours(idFilm: selectedMovie!["idFilm"]!, idTheater: selectedTheater!["idTheater"]!) {
+//            self.hours = data
+//        }
+        
         // Do any additional setup after loading the view.
         // picker for hour
         pickUp(hourOfFilmTextField)
@@ -58,6 +59,15 @@ class orderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         self.dateOfTextField.text = stringoftoday
         setupdatepicker()
         //end date
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if selectedTheater != nil {
+            if let data = DBWrapper.sharedInstance.fetchHours(idFilm: selectedMovie!["idFilm"]!, idTheater: selectedTheater!["idTheater"]!) {
+                self.hours = data
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -238,11 +248,11 @@ class orderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     @IBAction func saveOrder(_ sender: UIButton){
         if self.customerNameTextField.text?.isEmpty == true {
-            Utilities.sharedInstance.showAlertCancel(obj: self, title: "ERROR", message: "Theater cannot be empty")
+            Utilities.sharedInstance.showAlertCancel(obj: self, title: "ERROR", message: "Customer Name cannot be empty")
         }else if self.telephoneTextField.text?.isEmpty == true {
             Utilities.sharedInstance.showAlertCancel(obj: self, title: "ERROR", message: "Telephone cannot be empty")
         }else if self.nameOfTheaterTextField.text?.isEmpty == true {
-            Utilities.sharedInstance.showAlertCancel(obj: self, title: "ERROR", message: "Telephone cannot be empty")
+            Utilities.sharedInstance.showAlertCancel(obj: self, title: "ERROR", message: "Theater cannot be empty")
         }
         let param : [String: String] = [
             "customerName" : self.customerNameTextField.text!,

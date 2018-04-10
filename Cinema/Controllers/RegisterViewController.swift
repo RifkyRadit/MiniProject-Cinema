@@ -27,17 +27,17 @@ class RegisterViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func doRegistrationButton(_ sender: UIButton) {
-        let username = usernameTextField?.text
-        let password = passwordTextField?.text
-        let nameEmploye = nameEmployeTextField?.text
-        let level = levelTextField?.text
-        if DBWrapper.sharedInstance.doRegister(username: username!, password: password!, nameEmploye: nameEmploye!, level: level!) == true {
-            Utilities.sharedInstance.showAlert(obj: self, title: "SUCCESS", message: "Youre now registered!")
-        } else {
-            Utilities.sharedInstance.showAlert(obj: self, title: "ERROR", message: "Register Failed!")
-        }
-    }
+//    @IBAction func doRegistrationButton(_ sender: UIButton) {
+//        let username = usernameTextField?.text
+//        let password = passwordTextField?.text
+//        let nameEmploye = nameEmployeTextField?.text
+//        let level = levelTextField?.text
+//        if DBWrapper.sharedInstance.doRegister(username: username!, password: password!, nameEmploye: nameEmploye!, level: level!) == true {
+//            Utilities.sharedInstance.showAlert(obj: self, title: "SUCCESS", message: "Youre now registered!")
+//        } else {
+//            Utilities.sharedInstance.showAlert(obj: self, title: "ERROR", message: "Register Failed!")
+//        }
+//    }
 
     /*
     // MARK: - Navigation
