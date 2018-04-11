@@ -10,7 +10,7 @@ import UIKit
 class addMovieViewController: UIViewController, UITextFieldDelegate, selectGenreDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     
-    
+    // MARK:- Delcaration field
     @IBOutlet var movieNameTextField: UITextField!
     @IBOutlet var idGenreTextField: UITextField!
     @IBOutlet var producerTextField: UITextField!
@@ -20,6 +20,7 @@ class addMovieViewController: UIViewController, UITextFieldDelegate, selectGenre
     @IBOutlet var priceTextField: UITextField!
     @IBOutlet var deskripsiTextView: UITextView!
     
+    // Declaration picker
     var myPickerView : UIPickerView!
     let imagePicker = UIImagePickerController()
     @IBOutlet weak var imagePicked: UIImageView!
@@ -37,6 +38,9 @@ class addMovieViewController: UIViewController, UITextFieldDelegate, selectGenre
                                                selector: #selector(self.keyboardNotification(notification:)),
                                                name: NSNotification.Name.UIKeyboardWillChangeFrame,
                                                object: nil)
+        
+        self.yearTextField.delegate = self
+        self.priceTextField.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,7 +50,7 @@ class addMovieViewController: UIViewController, UITextFieldDelegate, selectGenre
     }
     
     
-    
+    // MARK:- Function to open galery in internal phone
     @IBAction func openPhotoLibraryButton(sender: UIBarButtonItem) {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             var imagePicker = UIImagePickerController()
@@ -56,7 +60,7 @@ class addMovieViewController: UIViewController, UITextFieldDelegate, selectGenre
             self.present(imagePicker, animated: true, completion: nil)
         }
     }
-    
+    // Function to piker image
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         imagePicked.image = image
@@ -66,7 +70,7 @@ class addMovieViewController: UIViewController, UITextFieldDelegate, selectGenre
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    
+    // MAKR:- Function for keyboard
     @objc func keyboardNotification(notification: NSNotification) {
         if let userInfo = notification.userInfo {
             let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
@@ -89,8 +93,10 @@ class addMovieViewController: UIViewController, UITextFieldDelegate, selectGenre
     }
     
    
-    
+    // MARK:- Function insert data to database
     @IBAction func addMovieDidPushButton(_ sender: UIButton){
+        // Validation data in text field
+        
         if self.movieNameTextField.text == ""{
             Utilities.sharedInstance.showAlertCancel(obj: self, title: "ERROR", message: "Movie Name cannot be empty")
             return
@@ -167,13 +173,32 @@ class addMovieViewController: UIViewController, UITextFieldDelegate, selectGenre
             obj.delegate = self
         }
     }
-    
+    // MAKR:- Function for respon when text field begine edit
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if textField == self.idGenreTextField{
             self.performSegue(withIdentifier: "selectGenreSegue", sender: self)
             return false
         }
-        return false
+        return true
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if textField == yearTextField{
+            if let intVal = Int(yearTextField.text!){
+                
+            }else{
+                Utilities.sharedInstance.showAlertCancel(obj: self, title: "ERROR", message: "Year must be Number")
+            }
+            return true
+        }else if textField == priceTextField{
+            if let intVal = Int(priceTextField.text!){
+                
+            }else{
+                Utilities.sharedInstance.showAlertCancel(obj: self, title: "ERROR", message: "Price must be Number")
+            }
+            return true
+        }
+        return true
     }
     
     func selectGenreWillDissmiss(param: [String : String]) {

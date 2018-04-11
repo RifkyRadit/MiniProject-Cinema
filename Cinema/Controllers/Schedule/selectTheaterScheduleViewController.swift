@@ -14,9 +14,10 @@ protocol selectTheaterScheduleDelegate {
 
 class selectTheaterScheduleViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
+    //MARK:- Declaration table and search
     @IBOutlet var tableView : UITableView!
     @IBOutlet var searchBar : UISearchBar!
-    
+    //MARK;- Delcararation array and selector
     var selectedMovie : [String: String]?
     var theaters = [[String: String]]()
     var selectedTheater : [String: String]?
@@ -42,6 +43,7 @@ class selectTheaterScheduleViewController: UIViewController, UITableViewDataSour
         }
     }
 
+    //MARK:- Function done button
     @IBAction func doneScheduleButtonDidPush(_ sender: UIBarButtonItem){
         if self.delegate != nil && self.selectedTheater != nil{
             self.delegate?.selectTheaterScheduleWillDissmiss(param: self.selectedTheater!)
@@ -58,7 +60,7 @@ class selectTheaterScheduleViewController: UIViewController, UITableViewDataSour
         // Pass the selected object to the new view controller.
     }
     */
-    
+    //MARK:- Implement data to table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.theaters.count
     }
@@ -79,7 +81,11 @@ class selectTheaterScheduleViewController: UIViewController, UITableViewDataSour
         }
         return cell
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedTheater = self.theaters[indexPath.row]
+        tableView.deselectRow(at: indexPath, animated: true)
+        self.tableView.reloadData()
+    }
 //    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
 //        let find = self.searchBar.text!
 //        if self.searchBar.text! == ""{
@@ -93,7 +99,7 @@ class selectTheaterScheduleViewController: UIViewController, UITableViewDataSour
 //        }
 //        self.tableView.reloadData()
 //    }
-    
+    //MARK:- Function search
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let find = self.searchBar.text!
         let idFilm = selectedMovie!["idFilm"]!
@@ -109,10 +115,6 @@ class selectTheaterScheduleViewController: UIViewController, UITableViewDataSour
         self.tableView.reloadData()
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selectedTheater = self.theaters[indexPath.row]
-        tableView.deselectRow(at: indexPath, animated: true)
-        self.tableView.reloadData()
-    }
+    
 
 }

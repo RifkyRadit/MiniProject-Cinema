@@ -229,6 +229,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="UZf-62-7pJ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="0Qw-L8-oUK">
                                 <rect key="frame" x="87" y="75" width="264" height="218"/>
                                 <constraints>
@@ -397,6 +401,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="5zF-g8-bGZ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="hla-UK-CaC">
                                 <rect key="frame" x="67" y="20" width="240" height="190"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -468,7 +476,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eQT-eG-jqT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3372" y="86.806596701649184"/>
+            <point key="canvasLocation" x="3371.0144927536235" y="86.413043478260875"/>
         </scene>
         <!--Seat-->
         <scene sceneID="tAN-Lw-dfl">
@@ -490,46 +498,20 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C0M-9K-tuP">
-                                                    <rect key="frame" x="8" y="19" width="72" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="72" id="GTJ-om-ud1"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BaM-F1-N5S">
-                                                    <rect key="frame" x="88" y="19" width="15" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="15" id="08q-wk-28T"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theater" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIt-kX-du2">
-                                                    <rect key="frame" x="111" y="19" width="295" height="21"/>
+                                                    <rect key="frame" x="24" y="19" width="366" height="26.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="C0M-9K-tuP" firstAttribute="leading" secondItem="Vif-4g-SdU" secondAttribute="leading" constant="8" id="1nb-pr-CVv"/>
-                                                <constraint firstAttribute="trailing" secondItem="WIt-kX-du2" secondAttribute="trailing" constant="8" id="2p8-xM-YxU"/>
-                                                <constraint firstAttribute="bottom" secondItem="C0M-9K-tuP" secondAttribute="bottom" constant="19.5" id="HKm-bq-DTe"/>
-                                                <constraint firstItem="BaM-F1-N5S" firstAttribute="leading" secondItem="C0M-9K-tuP" secondAttribute="trailing" constant="8" id="Uk1-HZ-ljT"/>
-                                                <constraint firstItem="C0M-9K-tuP" firstAttribute="top" secondItem="Vif-4g-SdU" secondAttribute="top" constant="19" id="YDT-ee-p5P"/>
-                                                <constraint firstItem="BaM-F1-N5S" firstAttribute="top" secondItem="Vif-4g-SdU" secondAttribute="top" constant="19" id="aWQ-8L-8sD"/>
-                                                <constraint firstItem="WIt-kX-du2" firstAttribute="leading" secondItem="BaM-F1-N5S" secondAttribute="trailing" constant="8" id="bfT-0R-H9T"/>
-                                                <constraint firstAttribute="bottom" secondItem="WIt-kX-du2" secondAttribute="bottom" constant="19.5" id="dbZ-jP-jie"/>
-                                                <constraint firstAttribute="bottom" secondItem="BaM-F1-N5S" secondAttribute="bottom" constant="19.5" id="v3O-Xq-o9x"/>
-                                                <constraint firstItem="WIt-kX-du2" firstAttribute="top" secondItem="Vif-4g-SdU" secondAttribute="top" constant="19" id="x86-VG-ZeB"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="C0M-9K-tuP" secondAttribute="trailing" constant="16" id="2wr-RZ-y3T"/>
+                                                <constraint firstItem="C0M-9K-tuP" firstAttribute="top" secondItem="Vif-4g-SdU" secondAttribute="topMargin" constant="11" id="JAP-Bg-sxs"/>
+                                                <constraint firstItem="C0M-9K-tuP" firstAttribute="leading" secondItem="Vif-4g-SdU" secondAttribute="leadingMargin" constant="16" id="LXh-Wg-CCi"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="seatNameLabel" destination="C0M-9K-tuP" id="8iU-g8-0IH"/>
-                                            <outlet property="theaterNameLabel" destination="WIt-kX-du2" id="1CE-B7-Rau"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -577,7 +559,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="r3H-Qe-9GE">
-                                <rect key="frame" x="25" y="83.999999999999986" width="364" height="180.66666666666663"/>
+                                <rect key="frame" x="25" y="84" width="364" height="110.33333333333331"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LuR-X5-WRc">
                                         <rect key="frame" x="0.0" y="0.0" width="364" height="20.333333333333332"/>
@@ -591,23 +573,8 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theater" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gz-eq-08H">
-                                        <rect key="frame" x="0.0" y="70.333333333333343" width="364" height="20.333333333333329"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2j4-5H-Dhq">
-                                        <rect key="frame" x="0.0" y="100.66666666666666" width="364" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="bQb-yp-sc8" id="D7D-xl-6fk"/>
-                                        </connections>
-                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXL-8z-4wx">
-                                        <rect key="frame" x="0.0" y="140.66666666666666" width="364" height="40"/>
+                                        <rect key="frame" x="0.0" y="70.333333333333343" width="364" height="40"/>
                                         <color key="backgroundColor" red="1" green="0.60998867170000004" blue="0.16482459350000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="hiI-V8-kd7"/>
@@ -637,7 +604,6 @@
                     <navigationItem key="navigationItem" title="Update Seat" id="dkE-OE-l87"/>
                     <connections>
                         <outlet property="nameSeatTextField" destination="aI2-Q5-tsb" id="0gM-TH-vXY"/>
-                        <outlet property="nameTheaterTextField" destination="2j4-5H-Dhq" id="Qhr-fF-kdF"/>
                         <segue destination="AvX-n5-dgh" kind="show" identifier="selectTheaterSegue" id="sWx-V4-5nj"/>
                     </connections>
                 </viewController>
@@ -657,7 +623,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0bj-UD-XLD">
-                                <rect key="frame" x="25" y="83.999999999999986" width="364" height="190.66666666666663"/>
+                                <rect key="frame" x="25" y="84" width="364" height="110.33333333333331"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Seat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FaH-i7-DTM">
                                         <rect key="frame" x="0.0" y="0.0" width="364" height="20.333333333333332"/>
@@ -674,26 +640,8 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theater" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oux-5o-YCG">
-                                        <rect key="frame" x="0.0" y="80.333333333333343" width="364" height="20.333333333333329"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8r5-hl-zb2">
-                                        <rect key="frame" x="0.0" y="110.66666666666666" width="364" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="fUr-tS-Ifa"/>
-                                        </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="wxc-qF-g6f" id="mU1-vv-eY3"/>
-                                        </connections>
-                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VUA-vA-GQp">
-                                        <rect key="frame" x="0.0" y="160.66666666666666" width="364" height="30"/>
+                                        <rect key="frame" x="0.0" y="80.333333333333343" width="364" height="30"/>
                                         <color key="backgroundColor" red="1" green="0.60998867170000004" blue="0.16482459350000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Add Seat">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -720,7 +668,6 @@
                     <navigationItem key="navigationItem" title="Add Seat" id="ky6-iR-S30"/>
                     <connections>
                         <outlet property="nameSeatTextField" destination="zBM-uc-rPJ" id="vCY-7B-Toh"/>
-                        <outlet property="nameTheaterTextField" destination="8r5-hl-zb2" id="0Ah-QW-NvW"/>
                         <segue destination="AvX-n5-dgh" kind="show" identifier="selectTheaterSegue" id="SbZ-9G-tVw"/>
                     </connections>
                 </viewController>
@@ -2752,10 +2699,11 @@
         <image name="MenuSeat" width="128" height="128"/>
         <image name="MenuTheater" width="128" height="128"/>
         <image name="addImage" width="112" height="112"/>
+        <image name="bg" width="400" height="400"/>
         <image name="logo" width="785" height="794"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="SBc-SY-A32"/>
-        <segue reference="sWx-V4-5nj"/>
+        <segue reference="SbZ-9G-tVw"/>
     </inferredMetricsTieBreakers>
 </document>

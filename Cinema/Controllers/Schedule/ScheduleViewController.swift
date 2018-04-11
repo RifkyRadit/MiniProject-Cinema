@@ -9,11 +9,12 @@
 import UIKit
 
 class ScheduleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
-    
+    //MARK:- Declaration table and search
     @IBOutlet var tableView: UITableView!
     @IBOutlet var searchBar: UISearchBar!
-    
+    //MARK:- Declaration array 2 demension(Dictonary)
     var schedule = [[String: String]]()
+    //MARK:- Declaration selector
     var selectedSchedule: [String: String]?
     
     override func viewDidLoad() {
@@ -35,13 +36,13 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    //MARK:- Function button add schedule
     @IBAction func addScheduleButton(_ sender: UIBarButtonItem){
         self.performSegue(withIdentifier: "addScheduleSegue", sender: self)
     }
 
     /*
-    // MARK: - Navigation
+    // MARK:- Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -49,7 +50,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         // Pass the selected object to the new view controller.
     }
     */
-    
+    //MARK:- Implement data to table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.schedule.count
     }
@@ -67,7 +68,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         }
         return cell
     }
-    
+    //MARK:- Function search
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let find = self.searchBar.text!
         if self.searchBar.text! == ""{

@@ -14,9 +14,10 @@ protocol selectTheaterDelegate {
 
 class selectTheaterViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
+    // MARK:- Declaration table and view
     @IBOutlet var tableView : UITableView!
     @IBOutlet var searchBar: UISearchBar!
-    
+    // MARK:- Delcaration array and selector
     var theater = [[String: String]]()
     var selectedTheater : [String: String]?
     var delegate: selectTheaterDelegate?
@@ -39,7 +40,7 @@ class selectTheaterViewController: UIViewController, UITableViewDataSource, UITa
             self.tableView.reloadData()
         }
     }
-    
+    // MARK:- Funciton done button
     @IBAction func doneButtonDidPush(_ sender: UIBarButtonItem){
         if self.delegate != nil && self.selectedTheater != nil{
             self.delegate?.selectTheaterWillDissmiss(param: self.selectedTheater!)
@@ -56,6 +57,7 @@ class selectTheaterViewController: UIViewController, UITableViewDataSource, UITa
         // Pass the selected object to the new view controller.
     }
     */
+    // MARK:- Implement data to table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.theater.count
     }
@@ -77,6 +79,12 @@ class selectTheaterViewController: UIViewController, UITableViewDataSource, UITa
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedTheater = self.theater[indexPath.row]
+        tableView.deselectRow(at: indexPath, animated: true)
+        self.tableView.reloadData()
+    }
+    // MARK:- Function search
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let find = self.searchBar.text!
         if self.searchBar.text! == ""{
@@ -91,10 +99,6 @@ class selectTheaterViewController: UIViewController, UITableViewDataSource, UITa
         self.tableView.reloadData()
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selectedTheater = self.theater[indexPath.row]
-        tableView.deselectRow(at: indexPath, animated: true)
-        self.tableView.reloadData()
-    }
+    
 
 }

@@ -23,7 +23,7 @@ class addGenreViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    //untuk fungsi button insert genre
+    // MARK:- Function to insert to database
      @IBAction func saveGenreButtonDidPush(_ sender: UIButton){
      
          if self.nameOfGenreTextField.text == ""{

@@ -12,7 +12,8 @@ class AdminViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let tmpbtn = UIBarButtonItem()
+        self.navigationItem.leftBarButtonItem = tmpbtn
         // Do any additional setup after loading the view.
     }
 

@@ -10,7 +10,7 @@ import UIKit
 
 class orderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource,UITextFieldDelegate, selectTheaterScheduleDelegate {
     
-
+    //MARK:- Declaration text field
     @IBOutlet var customerNameTextField: UITextField!
     @IBOutlet var telephoneTextField: UITextField!
     @IBOutlet var nameOfFilmTextField: UITextField!
@@ -19,26 +19,27 @@ class orderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet var hourOfFilmTextField: UITextField!
     @IBOutlet var priceOfFilmTextField: UITextField!
     @IBOutlet var seatTextField: UITextField!
-    
+    //MARK:- selector
     var selectedMovie: [String: String]?
     var selectedTheater : [String: String]?
-    
+    //MARK: Declaration for picker
     var myPickerView : UIPickerView!
     var seatPickerView : UIPickerView!
-    var hours = [[String: String]]()
-    var idseat = ""
-    var idSchedule = ""
-    
-    var seats = [[String: String]]()
-    var schedule = [[String: String]]()
     var dateformatter = DateFormatter()
     var datePicker: UIDatePicker?
+    var idseat = ""
+    var idSchedule = ""
+    //MARK:- Declaration variable array 2 demension
+    var seats = [[String: String]]()
+    var schedule = [[String: String]]()
+    var hours = [[String: String]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.seatTextField.delegate = self
         self.hourOfFilmTextField.delegate = self
+        self.telephoneTextField.delegate = self
         
 //        if let data = DBWrapper.sharedInstance.fetchHours(idFilm: selectedMovie!["idFilm"]!, idTheater: selectedTheater!["idTheater"]!) {
 //            self.hours = data
@@ -74,7 +75,7 @@ class orderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    //MARK:- Function date picker
     func setupdatepicker() {
         let frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 216)
         self.datePicker = UIDatePicker(frame: frame)
@@ -101,7 +102,7 @@ class orderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @objc func datecancelClick() {
         dateOfTextField.resignFirstResponder()
     }
-    //MARK:- picker
+    //MARK:- picker view
     func pickUp(_ textField : UITextField){
         
         // UIPickerView
@@ -216,7 +217,19 @@ class orderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             }
         }
         if textField == self.dateOfTextField {
-            return false
+            return true
+        }
+        return true
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if textField == telephoneTextField{
+            if let intval = Int(telephoneTextField.text!) {
+                
+            }else{
+                Utilities.sharedInstance.showAlertCancel(obj: self, title: "ERROR", message: "telephone must be Number")
+            }
+            return true
         }
         return true
     }

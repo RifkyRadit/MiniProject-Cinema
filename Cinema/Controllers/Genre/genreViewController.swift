@@ -15,7 +15,7 @@ protocol selectGenreDelegate {
 class genreViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var tableView: UITableView!
-    
+    // MARK:- Delcaration array and selector
     var genre = [[String: String]]()
     var selectedgenre : [String: String]?
     var delegate :selectGenreDelegate?
@@ -42,7 +42,7 @@ class genreViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
     }
-    
+    // MARK:- Function button add genre
     @IBAction func addGenreDidPushButton(_ sender: UIBarButtonItem){
         self.performSegue(withIdentifier: "addGenreSegue", sender: self)
     }
@@ -111,6 +111,8 @@ class genreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // Dispose of any resources that can be recreated.
     }
     
+    
+    // MARK:- Implements data to table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.genre.count
     }

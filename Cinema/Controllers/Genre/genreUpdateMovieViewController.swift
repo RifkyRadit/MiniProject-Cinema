@@ -15,7 +15,7 @@ protocol selectGenreUpdateDelegate {
 class genreUpdateMovieViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet var tableView: UITableView!
-    
+    // MARK:- Delcaration array
     var genre = [[String: String]]()
     var selectedgenre : [String: String]?
     var delegate :selectGenreUpdateDelegate?
@@ -33,7 +33,7 @@ class genreUpdateMovieViewController: UIViewController, UITableViewDelegate, UIT
             self.tableView.reloadData()
         }
     }
-    
+    // FUnction for done
     @IBAction func doneButtonDidPush(_ sender: UIBarButtonItem){
         if self.delegate != nil && self.selectedgenre != nil{
             self.delegate?.selectGenreUpdateWillDissmiss(param: self.selectedgenre!)
@@ -46,6 +46,8 @@ class genreUpdateMovieViewController: UIViewController, UITableViewDelegate, UIT
         // Dispose of any resources that can be recreated.
     }
     
+    
+    // MARK:- Implements data to table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.genre.count
     }

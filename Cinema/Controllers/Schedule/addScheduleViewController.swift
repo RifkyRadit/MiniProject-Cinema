@@ -10,15 +10,17 @@ import UIKit
 
 class addScheduleViewController: UIViewController, UITextFieldDelegate, selectMovieDelegate, selectTheaterDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    //MARK:- Declaration text field
     @IBOutlet var movieTitleTextField: UITextField!
     @IBOutlet var theaterTextField: UITextField!
     @IBOutlet var hoursTextField: UITextField!
-    
+    //MARK:- Delcaraion array 2 demension
     var movies = [[String: String]]()
     var theaters = [[String: String]]()
+    //MARK:- Declaration picker view
     var myPickerView : UIPickerView!
     var hours = ["09.00", "12.00", "14.00", "16.00", "19.00", "22.00"]
-    
+    //MARK:- Declaration selector
     var selectedMovie: [String: String]?
     var selectedTheaters : [String: String]?
 
@@ -32,7 +34,7 @@ class addScheduleViewController: UIViewController, UITextFieldDelegate, selectMo
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    //Function picker view
     func pickUp(_ textField : UITextField){
         
         // UIPickerView
@@ -123,7 +125,7 @@ class addScheduleViewController: UIViewController, UITextFieldDelegate, selectMo
             obj.delegate = self
         }
     }
-    
+    //MARK:- Function when text field begine edit
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if textField == self.movieTitleTextField{
             self.performSegue(withIdentifier: "selectMovieSegue", sender: self)
@@ -135,7 +137,7 @@ class addScheduleViewController: UIViewController, UITextFieldDelegate, selectMo
         }
         return false
     }
-    
+    //MARK:- Set data to field from selector
     func selectMovieWillDissmiss(param: [String : String]) {
         self.movieTitleTextField.text = param["nameOfFilm"]
         self.selectedMovie = param

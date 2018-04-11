@@ -8,21 +8,25 @@
 
 import UIKit
 
-class AddTheaterMoviesViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class AddTheaterMoviesViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     
 
+    // MARK:- Declarration Field
     @IBOutlet var nameTheaterTextField : UITextField!
     @IBOutlet var capacityTextField : UITextField!
     @IBOutlet var addressTextView : UITextView!
-    
+    @IBOutlet weak var imagePicked: UIImageView!
+    // MARK:- Declaration picker
     var myPickerView : UIPickerView!
     let imagePicker = UIImagePickerController()
-    @IBOutlet weak var imagePicked: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
+        
+        self.capacityTextField.delegate = self
+        
         // Do any additional setup after loading the view.
     }
 
@@ -30,7 +34,7 @@ class AddTheaterMoviesViewController: UIViewController, UIImagePickerControllerD
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    // MARK:- function to open galery in internal phone
     @IBAction func openPhotoLibraryButton(sender: UIBarButtonItem) {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             var imagePicker = UIImagePickerController()
@@ -40,7 +44,7 @@ class AddTheaterMoviesViewController: UIViewController, UIImagePickerControllerD
             self.present(imagePicker, animated: true, completion: nil)
         }
     }
-    
+    // MARK:- Function for pick image
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         imagePicked.image = image
@@ -48,7 +52,7 @@ class AddTheaterMoviesViewController: UIViewController, UIImagePickerControllerD
     }
     
     //action for save theater into database
-    
+    // MAKR:- Function to insert data to database
     @IBAction func saveButton(_ sender: UIButton) {
         if self.nameTheaterTextField.text == "" {
             Utilities.sharedInstance.showAlertCancel(obj: self, title: "ERROR", message: "Name Theater Cannot Be Empty!")
@@ -68,6 +72,7 @@ class AddTheaterMoviesViewController: UIViewController, UIImagePickerControllerD
         }
         
         //        let images : UIImage = UIImage(named:imagePicked.image)!
+        // Convert image to string for insert to database
         let imageData:NSData = UIImagePNGRepresentation(imagePicked.image!)! as NSData
         let strBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
         
@@ -84,6 +89,19 @@ class AddTheaterMoviesViewController: UIViewController, UIImagePickerControllerD
             Utilities.sharedInstance.showAlertCancel(obj: self, title: "ERROR", message: "Failed to insert movie")
         }
     }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if textField == capacityTextField{
+            if let intValu = Int(capacityTextField.text!){
+                
+            }else{
+                Utilities.sharedInstance.showAlertCancel(obj: self, title: "ERROR", message: "Capacity Must number")
+            }
+            return true
+        }
+        return true
+    }
+    
     /*// MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

@@ -27,7 +27,7 @@ class editGenreViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    //untuk fungsi button update genre
+    // MARK:- Function to update to database
      @IBAction func updateGenreButtonDidPush(_ sender: UIButton){
      
          if self.nameOfGenreTextField.text == ""{

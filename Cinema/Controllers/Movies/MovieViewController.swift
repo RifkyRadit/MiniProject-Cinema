@@ -10,9 +10,10 @@ import UIKit
 
 class MovieViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate {
 
+    // MAKR:- Delcaration table and search
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var searchBar: UISearchBar!
-    
+    // Delcaration array
     var movies = [[String: String]]()
     var selectedMovie: [String: String]?
     
@@ -66,7 +67,7 @@ class MovieViewController: UIViewController, UICollectionViewDelegate, UICollect
             obj.selectedMovie = self.selectedMovie
         }
     }
-    
+    // MARK:- Implemetn data to collection view
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.movies.count
     }
@@ -83,30 +84,6 @@ class MovieViewController: UIViewController, UICollectionViewDelegate, UICollect
         return cell
     }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        let find = self.searchBar.text!
-        if self.searchBar.text! == ""{
-            if let data = DBWrapper.sharedInstance.fetchMovies(){ // menampilkan data
-                self.movies = data
-            }
-        }else{
-            if let data = DBWrapper.sharedInstance.searchMovie(search: find){ // menampilkan data
-                self.movies = data
-            }
-        }
-        self.collectionView.reloadData()
-    }
-    
-    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "movieViewCell", for: indexPath) as! moviesTableViewCell
-//        let data = self.movies[indexPath.row]
-//        cell.nameOfMoviesLabel.text = data["nameOfFilm"]
-//        cell.genreLabel.text = data["nameOfGenre"]
-//        cell.yearLabel.text = data["year"]
-//        return cell
-//    }
-//
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let movie = self.movies[indexPath.item]
         self.selectedMovie = movie
@@ -171,4 +148,31 @@ class MovieViewController: UIViewController, UICollectionViewDelegate, UICollect
         
         collectionView.deselectItem(at: indexPath, animated: true)
     }
+    
+    // MARK:- Seacrh bar
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let find = self.searchBar.text!
+        if self.searchBar.text! == ""{
+            if let data = DBWrapper.sharedInstance.fetchMovies(){ // menampilkan data
+                self.movies = data
+            }
+        }else{
+            if let data = DBWrapper.sharedInstance.searchMovie(search: find){ // menampilkan data
+                self.movies = data
+            }
+        }
+        self.collectionView.reloadData()
+    }
+    
+    
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "movieViewCell", for: indexPath) as! moviesTableViewCell
+//        let data = self.movies[indexPath.row]
+//        cell.nameOfMoviesLabel.text = data["nameOfFilm"]
+//        cell.genreLabel.text = data["nameOfGenre"]
+//        cell.yearLabel.text = data["year"]
+//        return cell
+//    }
+//
+    
 }

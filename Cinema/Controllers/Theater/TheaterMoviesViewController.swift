@@ -9,7 +9,7 @@
 import UIKit
 
 class TheaterMoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
-    
+    // MARK:- Delcaration table and search
     @IBOutlet var tableView : UITableView!
     @IBOutlet var searchBar : UISearchBar!
     
@@ -34,6 +34,7 @@ class TheaterMoviesViewController: UIViewController, UITableViewDataSource, UITa
     }
     
 
+    // mARK:- Function button to add theater
     @IBAction func addTheaterButton(_ sender: UIBarButtonItem){
         self.performSegue(withIdentifier: "addTheaterSegue", sender: self)
     }
@@ -50,7 +51,7 @@ class TheaterMoviesViewController: UIViewController, UITableViewDataSource, UITa
             obj.selectTheaters = self.selectedTheaters
         }
     }
-    
+    // MARK:- Implement data to table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.theaters.count
     }
@@ -67,23 +68,6 @@ class TheaterMoviesViewController: UIViewController, UITableViewDataSource, UITa
         }
         return cell
     }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        let find = self.searchBar.text!
-        if self.searchBar.text! == ""{
-            if let data = DBWrapper.sharedInstance.fetchTheaters(){ // menampilkan data
-                self.theaters = data
-            }
-        }else{
-            if let data = DBWrapper.sharedInstance.searchTheater(search: find){ // menampilkan data
-                self.theaters = data
-            }
-        }
-        self.tableView.reloadData()
-    }
- 
-    
-    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let theater = self.theaters[indexPath.row]
@@ -107,7 +91,7 @@ class TheaterMoviesViewController: UIViewController, UITableViewDataSource, UITa
                 let param: [String: String] = [
                     "idTheater": (self.selectedTheaters?["idTheater"])!
                 ]
-            
+                
                 if DBWrapper.sharedInstance.doDeleteTheater(theater: param) == true {
                     // Succes update movie
                     let alert = UIAlertController(title: "SUCCESS", message: "Movie Deleted!", preferredStyle: UIAlertControllerStyle.alert)
@@ -154,6 +138,26 @@ class TheaterMoviesViewController: UIViewController, UITableViewDataSource, UITa
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    // MARK:- Function search
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let find = self.searchBar.text!
+        if self.searchBar.text! == ""{
+            if let data = DBWrapper.sharedInstance.fetchTheaters(){ // menampilkan data
+                self.theaters = data
+            }
+        }else{
+            if let data = DBWrapper.sharedInstance.searchTheater(search: find){ // menampilkan data
+                self.theaters = data
+            }
+        }
+        self.tableView.reloadData()
+    }
+ 
+    
+    
+    
+   
     
 
 }

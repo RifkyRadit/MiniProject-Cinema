@@ -11,7 +11,7 @@ import UIKit
 class historyOrderViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet var tableView: UITableView!
-    
+    //Declaration array
     var history = [[String: String]]()
     
     override func viewDidLoad() {
@@ -42,7 +42,7 @@ class historyOrderViewController: UIViewController, UITableViewDataSource, UITab
         // Pass the selected object to the new view controller.
     }
     */
-    
+    //MARK:- Implements data hostory to table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.history.count
     }

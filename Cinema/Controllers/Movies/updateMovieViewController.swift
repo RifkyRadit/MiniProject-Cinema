@@ -10,6 +10,7 @@ import UIKit
 
 class updateMovieViewController: UIViewController, UITextFieldDelegate, selectGenreUpdateDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    // MARK;- Delcaration field
     @IBOutlet var movieNameTextField: UITextField!
     @IBOutlet var idGenreTextField: UITextField!
     @IBOutlet var producerTextField: UITextField!
@@ -19,11 +20,12 @@ class updateMovieViewController: UIViewController, UITextFieldDelegate, selectGe
     @IBOutlet var priceTextField: UITextField!
     @IBOutlet var deskripsiTextView: UITextView!
     @IBOutlet var coverImageView : UIImageView!
-    
-    var myPickerView : UIPickerView!
-    let imagePicker = UIImagePickerController()
     @IBOutlet weak var imagePicked: UIImageView!
     
+    // MARK:- Declaration picker
+    var myPickerView : UIPickerView!
+    let imagePicker = UIImagePickerController()
+    // MARK:- Delcaration selector
     var selectedMovie: [String: String]?
     var selectedgenre: [String: String]?
     
@@ -50,7 +52,7 @@ class updateMovieViewController: UIViewController, UITextFieldDelegate, selectGe
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    // MAKR:- Function for open image in galery internal phone
     @IBAction func openPhotoLibraryButton(sender: UIBarButtonItem) {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             var imagePicker = UIImagePickerController()
@@ -60,13 +62,14 @@ class updateMovieViewController: UIViewController, UITextFieldDelegate, selectGe
             self.present(imagePicker, animated: true, completion: nil)
         }
     }
-    
+    // MARK:- Function to pick image in galery
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         imagePicked.image = image
         dismiss(animated:true, completion: nil)
     }
     
+    // MARK:- Function insert to databse
     @IBAction func updateButtonDidPushed(_ sender: UIButton){
         if self.movieNameTextField.text == ""{
             Utilities.sharedInstance.showAlertCancel(obj: self, title: "ERROR", message: "Movie Name cannot be empty")
@@ -152,6 +155,7 @@ class updateMovieViewController: UIViewController, UITextFieldDelegate, selectGe
          }
     }
     
+    // MAKR:- Function for respone when text field begin edit
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool{
         if textField == self.idGenreTextField{
             self.performSegue(withIdentifier: "editSelectGenreSegue", sender: self)

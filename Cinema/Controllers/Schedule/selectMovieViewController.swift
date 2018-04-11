@@ -13,10 +13,10 @@ protocol selectMovieDelegate {
 }
 
 class selectMovieViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate {
-    
+    //MARK:- Delcaraion Collection view and search
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var searchBar: UISearchBar!
-    
+    //MARK;- Delcaraion array and selector
     var movies = [[String: String]]()
     var selectedMovie: [String: String]?
     var delegate: selectMovieDelegate?
@@ -50,7 +50,7 @@ class selectMovieViewController: UIViewController, UICollectionViewDelegate, UIC
         // Pass the selected object to the new view controller.
     }
     */
-    
+    //MARK:- Function search
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let find = self.searchBar.text!
         if self.searchBar.text! == ""{
@@ -64,7 +64,7 @@ class selectMovieViewController: UIViewController, UICollectionViewDelegate, UIC
         }
         self.collectionView.reloadData()
     }
-    
+    //MARK:- Function for implements data to collection view
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.movies.count
     }

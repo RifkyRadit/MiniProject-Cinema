@@ -11,7 +11,6 @@ import UIKit
 class SeatTableViewCell: UITableViewCell {
 
     @IBOutlet var seatNameLabel: UILabel!
-    @IBOutlet var theaterNameLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -23,7 +23,7 @@ class DBWrapper {
             print ("SUCCESS: Successfully open cinema.db in \(fileURL.path)")
         }
     }
-    
+    //MARK:- CREATE TABLE
     func createTables() {
         if sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS Users (idUser INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT UNIQUE,  password TEXT, level TEXT)", nil, nil, nil) != SQLITE_OK {
             let errmsg = String(cString: sqlite3_errmsg(db)!)
@@ -45,7 +45,7 @@ class DBWrapper {
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("ERROR: Error creating table Theaters: \(errmsg)")
         }
-        if sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS Seats (idSeat INTEGER PRIMARY KEY AUTOINCREMENT, nameSeat TEXT, idTheater INTEGER)", nil, nil, nil) != SQLITE_OK {
+        if sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS Seats (idSeat INTEGER PRIMARY KEY AUTOINCREMENT, nameSeat TEXT)", nil, nil, nil) != SQLITE_OK {
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("ERROR: Error creating table Seats: \(errmsg)")
         }
@@ -58,7 +58,7 @@ class DBWrapper {
             print("ERROR: Error creating table Seats: \(errmsg)")
         }
     }
-    
+    //MARK:- Function to login
     func doLogin(username: String, password: String) -> [String: String]? {
         var stmt: OpaquePointer?
         let queryString = "SELECT * FROM Users WHERE username='\(username)' AND password='\(password)'"
@@ -496,9 +496,8 @@ class DBWrapper {
         var stmt : OpaquePointer?
         
         let seatName = seatData["nameSeat"]!
-        let idTheater = seatData["idTheater"]!
         
-        let queryString = "INSERT INTO Seats (nameSeat, idTheater) VALUES ('\(seatName)','\(idTheater)')"
+        let queryString = "INSERT INTO Seats (nameSeat) VALUES ('\(seatName)')"
 //        print ("QUERY INSERT MOVIES: \(queryString)")
         
         if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK{
@@ -510,7 +509,7 @@ class DBWrapper {
     
     //show seat
     func fetchSeat() -> [[String: String]]? {
-        let queryString = "SELECT Seats.*, Theaters.nameTheater FROM Seats inner join Theaters on Seats.idTheater = Theaters.idTheater"
+        let queryString = "SELECT Seats.* FROM Seats"
 //        print("QUERY FETCH GENRE: \(queryString)")
         var stmt : OpaquePointer?
         
@@ -524,14 +523,10 @@ class DBWrapper {
         while (sqlite3_step(stmt)) == SQLITE_ROW {
             let idSeat = sqlite3_column_int(stmt, 0)
             let nameSeat = String(cString: sqlite3_column_text(stmt, 1))
-            let idTheater = sqlite3_column_int(stmt, 2)
-            let nameTheater = String(cString: sqlite3_column_text(stmt, 3))
             
             let tmp = [
                 "idSeat" : String(idSeat),
-                "nameSeat" : String(nameSeat),
-                "idTheater" : String(idTheater),
-                "nameTheater" : String(nameTheater)
+                "nameSeat" : String(nameSeat)
             ]
             
             seat?.append(tmp)
@@ -545,9 +540,8 @@ class DBWrapper {
         
         let idSeat = seatData["idSeat"]!
         let nameSeat = seatData["nameSeat"]!
-        let idTheater = seatData["idTheater"]!
         
-        let queryString = "UPDATE Seats SET nameSeat='\(nameSeat)', idTheater='\(idTheater)' WHERE idSeat = '\(idSeat)'"
+        let queryString = "UPDATE Seats SET nameSeat='\(nameSeat)' WHERE idSeat = '\(idSeat)'"
 //        print ("QUERY UPDATE SEATS: \(queryString)")
         
         if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK{
@@ -698,7 +692,7 @@ class DBWrapper {
         let idFilm = order["idFilm"]!
         let idSchedule = order["idSchedule"]!
         let idTheater = order["idTheater"]!
-        let queryString = "SELECT Seats.idSeat, Seats.nameSeat FROM Seats LEFT JOIN Orders ON Seats.idseat=Orders.idSeat WHERE Seats.idSeat <= (select Theaters.capacity from Theaters WHERE Theaters.idTheater = '\(idTheater)') AND Seats.idTheater = '\(idTheater)' AND Seats.idSeat NOT IN (SELECT Seats.idSeat FROM Seats INNER JOIN Orders ON Seats.idSeat=Orders.idseat INNER JOIN Schedule ON Orders.idSchedule=Schedule.idSchedule INNER JOIN Theaters ON Theaters.idTheater=Schedule.idTheater WHERE Orders.date='\(date)' AND Schedule.hours='\(hours)' AND Schedule.idFilm='\(idFilm)' AND Schedule.idSchedule='\(idSchedule)' AND Seats.idSeat < Theaters.capacity AND Seats.idTheater='\(idTheater)')"
+        let queryString = "SELECT Seats.idSeat, Seats.nameSeat FROM Seats LEFT JOIN Orders ON Seats.idseat=Orders.idSeat WHERE Seats.idSeat <= (select Theaters.capacity from Theaters WHERE Theaters.idTheater = '\(idTheater)') AND Seats.idSeat NOT IN (SELECT Seats.idSeat FROM Seats INNER JOIN Orders ON Seats.idSeat=Orders.idseat INNER JOIN Schedule ON Orders.idSchedule=Schedule.idSchedule INNER JOIN Theaters ON Theaters.idTheater=Schedule.idTheater WHERE Orders.date='\(date)' AND Schedule.hours='\(hours)' AND Schedule.idFilm='\(idFilm)' AND Schedule.idSchedule='\(idSchedule)' AND Seats.idSeat < Theaters.capacity)"
         //        let queryString = "SELECT idSeat, nameSeat FROM Seats"
 //        print("QUERY FETCH ORDER SEAT: \(queryString)")
         var stmt : OpaquePointer?

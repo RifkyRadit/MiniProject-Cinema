@@ -10,8 +10,9 @@ import UIKit
 
 class seatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    //Delcaration table view
     @IBOutlet var tableView: UITableView!
-    
+    //MARK:- Declaration array
     var seat = [[String: String]]()
     var selectedSeat: [String: String]?
     
@@ -33,27 +34,19 @@ class seatViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.tableView.reloadData()
         }
     }
-    
+    //MARK:- Fucntion add seat
     @IBAction func addSeatDidPushButton(_ sender: UIBarButtonItem){
         self.performSegue(withIdentifier: "addSeatSegue", sender: self)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if segue.identifier == "updateSeat"{
             let obj = segue.destination as! updateSeatViewController
             obj.selectedSeat = self.selectedSeat
         }
     }
-    
+    // MARK:- Implement data to table
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.seat.count
     }
@@ -62,7 +55,6 @@ class seatViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "seatsViewCell", for: indexPath) as! SeatTableViewCell
         let dataSeat = self.seat[indexPath.row]
         cell.seatNameLabel.text = dataSeat["nameSeat"]
-        cell.theaterNameLabel.text = dataSeat["nameTheater"]
         return cell
     }
     

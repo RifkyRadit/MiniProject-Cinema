@@ -10,8 +10,8 @@ import UIKit
 
 class detailMovieViewController: UIViewController {
 
+    // MARK:- Delcaration field and table
     @IBOutlet var tableView: UITableView!
-    
     @IBOutlet var movieNamelabel: UILabel!
     @IBOutlet var genreLabel: UILabel!
     @IBOutlet var producerLabel: UILabel!
@@ -20,7 +20,7 @@ class detailMovieViewController: UIViewController {
     @IBOutlet var yearLabel: UILabel!
     @IBOutlet var descriptionTextView: UITextView!
     @IBOutlet var coverImageView : UIImageView!
-    
+    // MARK:- Delcaration array
     var movies = [[String: String]]()
     var selectedMovie: [String: String]?
     
@@ -48,7 +48,7 @@ class detailMovieViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    // MARK:- Funtion for to view buy ticket
     @IBAction func buyTicket(_ sender: UIBarButtonItem){
         self.performSegue(withIdentifier: "buyTicketSegue", sender: self)
     }

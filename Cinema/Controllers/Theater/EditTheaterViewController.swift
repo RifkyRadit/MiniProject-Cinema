@@ -10,15 +10,15 @@ import UIKit
 
 class EditTheaterViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
    
-  
+    // MARK:- Declaration field and view
     @IBOutlet var nameTheaterTextField: UITextField!
     @IBOutlet var capacityTextField: UITextField!
     @IBOutlet var addressTheaterTextField: UITextView!
     @IBOutlet var theaterImageView : UIImageView!
-    
+    @IBOutlet weak var imagePicked: UIImageView!
+    // MARK:- Delcaration picker view image
     var myPickerView : UIPickerView!
     let imagePicker = UIImagePickerController()
-    @IBOutlet weak var imagePicked: UIImageView!
     
     var selectTheaters: [String: String]?
     override func viewDidLoad() {
@@ -38,7 +38,7 @@ class EditTheaterViewController: UIViewController, UITextFieldDelegate, UIImageP
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    // MARK:- Function for open galery internal phone
     @IBAction func openPhotoLibraryButton(sender: UIBarButtonItem) {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             let imagePicker = UIImagePickerController()
@@ -48,13 +48,14 @@ class EditTheaterViewController: UIViewController, UITextFieldDelegate, UIImageP
             self.present(imagePicker, animated: true, completion: nil)
         }
     }
-    
+    // MARK:- Fucntion for pick image in galery
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         imagePicked.image = image
         dismiss(animated:true, completion: nil)
     }
     
+    // MARK:- Function for insert to database
     @IBAction func updateButton(_ sender: UIButton) {
         if self.nameTheaterTextField.text == "" {
             Utilities.sharedInstance.showAlertCancel(obj: self, title: "ERROR", message: "Name Theater Cannot Be Empty!")

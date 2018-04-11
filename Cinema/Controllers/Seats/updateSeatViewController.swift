@@ -8,13 +8,12 @@
 
 import UIKit
 
-class updateSeatViewController: UIViewController, UITextFieldDelegate, selectTheaterDelegate {
+class updateSeatViewController: UIViewController, UITextFieldDelegate{
 
+    // MARK:- Declaration field
     @IBOutlet var nameSeatTextField: UITextField!
-    @IBOutlet var nameTheaterTextField: UITextField!
-    
+    // MARK:- Declaration array (Dictonary)
     var selectedSeat: [String: String]?
-    var selectedTheater : [String: String]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +21,6 @@ class updateSeatViewController: UIViewController, UITextFieldDelegate, selectThe
         // Do any additional setup after loading the view.
         self.title = self.selectedSeat?["nameSeat"]
         self.nameSeatTextField.text = self.selectedSeat?["nameSeat"]
-        self.nameTheaterTextField.text = self.selectedSeat?["nameTheater"]
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,25 +28,17 @@ class updateSeatViewController: UIViewController, UITextFieldDelegate, selectThe
         // Dispose of any resources that can be recreated.
     }
     
-    
+    // MARK:- Fucntion to update to database
     @IBAction func updateSeatButton(_ sender: UIButton){
         if self.nameSeatTextField.text == ""{
             Utilities.sharedInstance.showAlertCancel(obj: self, title: "ERROR", message: "Seat cannot be empty")
         }
-        if self.nameTheaterTextField.text == ""{
-            Utilities.sharedInstance.showAlertCancel(obj: self, title: "ERROR", message: "Theater cannot be empty")
-        }
         
-        //untuk memasukkan index jika genre tidak di edit
-        if self.selectedTheater == nil {
-            selectedTheater = [String: String]()
-            self.selectedTheater?["idTheater"] = self.selectedSeat?["idTheater"]
-        }
+        
         
         let param : [String: String] = [
             "idSeat": (self.selectedSeat?["idSeat"])!,
-            "nameSeat" : self.nameSeatTextField.text!,
-            "idTheater" : (self.selectedTheater?["idTheater"])!
+            "nameSeat" : self.nameSeatTextField.text!
         ]
         
         if DBWrapper.sharedInstance.updateSeat(seatData: param) == true{
@@ -67,30 +57,12 @@ class updateSeatViewController: UIViewController, UITextFieldDelegate, selectThe
     }
 
     
-    // MARK: - Navigation
+    /*// MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "selectTheaterSegue"{
-            let obj = segue.destination as! selectTheaterViewController
-            obj.delegate = self
-        }
-    }
-
-    
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        if textField == self.nameTheaterTextField{
-            self.performSegue(withIdentifier: "selectTheaterSegue", sender: self)
-            return false
-        }
-        return false
-    }
-    
-    func selectTheaterWillDissmiss(param: [String : String]) {
-        self.nameTheaterTextField.text = param["nameTheater"]
-        self.selectedTheater = param
-    }
+    }*/
 
 }
