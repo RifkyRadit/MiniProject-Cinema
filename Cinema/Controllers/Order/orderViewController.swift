@@ -8,7 +8,7 @@
 
 import UIKit
 
-class orderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource,UITextFieldDelegate, selectTheaterScheduleDelegate {
+class orderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, selectTheaterScheduleDelegate {
     
     //MARK:- Declaration text field
     @IBOutlet var customerNameTextField: UITextField!
@@ -266,30 +266,31 @@ class orderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             Utilities.sharedInstance.showAlertCancel(obj: self, title: "ERROR", message: "Telephone cannot be empty")
         }else if self.nameOfTheaterTextField.text?.isEmpty == true {
             Utilities.sharedInstance.showAlertCancel(obj: self, title: "ERROR", message: "Theater cannot be empty")
-        }
-        let param : [String: String] = [
-            "customerName" : self.customerNameTextField.text!,
-            "telephone" : self.telephoneTextField.text!,
-            "idFilm" : self.selectedMovie!["idFilm"]!,
-            "idSeat" : self.idseat,
-            "idTheater" : self.selectedTheater!["idTheater"]!,
-            "date" : dateOfTextField.text!,
-            "hours" : self.hourOfFilmTextField.text!,
-            "idSchedule" : self.idSchedule
-        ]
-        
-        if DBWrapper.sharedInstance.doInsertOrder(order: param) == true{
-            //insert success
-            let alert = UIAlertController(title: "SUCCESS", message: "Success insert order", preferredStyle: UIAlertControllerStyle.alert)
-            let oke = UIAlertAction (title: "OKE", style: UIAlertActionStyle.cancel, handler: { (action) in
-                alert.dismiss(animated: true, completion: nil)
-                
-                self.navigationController?.popViewController(animated: true)
-            })
-            alert.addAction(oke)
-            self.present(alert, animated: true, completion: nil)
         }else{
-            Utilities.sharedInstance.showAlert(obj: self, title: "ERROR", message: "Failed Insert Movie")
+            let param : [String: String] = [
+                "customerName" : self.customerNameTextField.text!,
+                "telephone" : self.telephoneTextField.text!,
+                "idFilm" : self.selectedMovie!["idFilm"]!,
+                "idSeat" : self.idseat,
+                "idTheater" : self.selectedTheater!["idTheater"]!,
+                "date" : dateOfTextField.text!,
+                "hours" : self.hourOfFilmTextField.text!,
+                "idSchedule" : self.idSchedule
+            ]
+            
+            if DBWrapper.sharedInstance.doInsertOrder(order: param) == true{
+                //insert success
+                let alert = UIAlertController(title: "SUCCESS", message: "Success insert order", preferredStyle: UIAlertControllerStyle.alert)
+                let oke = UIAlertAction (title: "OKE", style: UIAlertActionStyle.cancel, handler: { (action) in
+                    alert.dismiss(animated: true, completion: nil)
+                    
+                    self.navigationController?.popViewController(animated: true)
+                })
+                alert.addAction(oke)
+                self.present(alert, animated: true, completion: nil)
+            }else{
+                Utilities.sharedInstance.showAlert(obj: self, title: "ERROR", message: "Failed Insert Movie")
+            }
         }
     }
     // MARK: - Navigation

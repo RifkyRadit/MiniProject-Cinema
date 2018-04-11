@@ -104,7 +104,7 @@ class selectTheaterScheduleViewController: UIViewController, UITableViewDataSour
         let find = self.searchBar.text!
         let idFilm = selectedMovie!["idFilm"]!
         if self.searchBar.text! == ""{
-            if let data = DBWrapper.sharedInstance.fetchTheaterSchedule(idFilm: idFilm){ // menampilkan data
+            if let data = DBWrapper.sharedInstance.fetchTheaterSchedule(idFilm : idFilm){ // menampilkan data
                 self.theaters = data
             }
         }else{

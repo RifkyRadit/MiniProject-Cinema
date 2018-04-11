@@ -92,22 +92,30 @@ class addScheduleViewController: UIViewController, UITextFieldDelegate, selectMo
         if self.movieTitleTextField.text == ""{
             Utilities.sharedInstance.showAlertCancel(obj: self, title: "ERROR", message: "Movie cannot be empty")
         }
-        
-        if self.theaterTextField.text == ""{
+        else if self.theaterTextField.text == ""{
             Utilities.sharedInstance.showAlertCancel(obj: self, title: "ERROR", message: "Theater cannot be empty")
         }
-        
-        let param: [String: String]? = [
-            "idFilm": selectedMovie!["idFilm"]!,
-            "idTheater": selectedTheaters!["idTheater"]!,
-            "hours": self.hoursTextField.text!
-        ]
-        
-        if DBWrapper.sharedInstance.insertSchedule(schedule: param!) == true{
-            Utilities.sharedInstance.showAlert(obj: self, title: "SUCCESS", message: "Success insert scehdule")
-        }else{
-            Utilities.sharedInstance.showAlertCancel(obj: self, title: "ERROR", message: "Error insert scehdule")
+        else if self.hoursTextField.text == ""{
+            Utilities.sharedInstance.showAlertCancel(obj: self, title: "ERROR", message: "hour cannot be empty")
         }
+        else{
+            let param: [String: String]? = [
+                "idFilm": selectedMovie!["idFilm"]!,
+                "idTheater": selectedTheaters!["idTheater"]!,
+                "hours": self.hoursTextField.text!
+            ]
+            
+            if DBWrapper.sharedInstance.checkSchedule(check: param!) == false {
+                Utilities.sharedInstance.showAlertCancel(obj: self, title: "ERROR", message: "Error insert scehdule, schedule was added")
+            }else{
+                if DBWrapper.sharedInstance.insertSchedule(schedule: param!) == true{
+                    Utilities.sharedInstance.showAlert(obj: self, title: "SUCCESS", message: "Success insert scehdule")
+                }else{
+                    Utilities.sharedInstance.showAlertCancel(obj: self, title: "ERROR", message: "Error insert scehdule")
+                }
+            }
+        }
+        
     }
 
     // MARK: - Navigation

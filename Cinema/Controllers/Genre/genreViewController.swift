@@ -140,7 +140,7 @@ class genreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let actionSheet = UIAlertController(title: "What do you want to do with :", message: self.selectedgenre?["nameOfGenre"], preferredStyle: UIAlertControllerStyle.actionSheet)
         
-        let editAction = UIAlertAction(title: "Edit", style: UIAlertActionStyle.default) { (action) in
+        let editAction = UIAlertAction(title: "Update", style: UIAlertActionStyle.default) { (action) in
             self.performSegue(withIdentifier: "editGenreSegue", sender: self)
         }
         

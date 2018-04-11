@@ -50,6 +50,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         // Pass the selected object to the new view controller.
     }
     */
+    
     //MARK:- Implement data to table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.schedule.count
@@ -58,7 +59,6 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "scheduleViewCell", for: indexPath) as! scheduleTableViewCell
         let dataSchedule = self.schedule[indexPath.row]
-//        cell.movieNameLabel?.text = dataSchedule["nameofFilm"]
         cell.movieNameLabel.text = dataSchedule["nameOfFilm"]!
         cell.theaterNameLabel?.text = dataSchedule["nameTheater"]
         cell.hoursLabel?.text = dataSchedule["hours"]!
